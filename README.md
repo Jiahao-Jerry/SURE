@@ -90,6 +90,30 @@ Ancient History, Birds & Nature, Books & Reading, Capitalism, Climate & Energy, 
 
 ---
 
+## Scaled Dataset — `scale_8000/`
+
+An expanded version of the pipeline using the same 17 topics but 470 posts per topic (7,990 total), produced by deepening the candidate pool from 500 → 1,000 per topic and raising the agent QC cutoff from 150 → 470.
+
+| File | Rows | Description |
+|---|---|---|
+| `scale_8000/candidate_pool_1000.jsonl` | 17,000 | Top 1,000 posts per topic by LR score |
+| `scale_8000/rankings_8000.jsonl` | 17,000 | All candidates ranked by Claude Haiku agent score |
+| `scale_8000/8000_posts.jsonl` | 7,990 | Final scaled dataset — top 470 per topic |
+
+Agent score cutoffs per topic at 470 posts:
+
+| Topic | Cutoff |
+|---|---|
+| Ancient History, Climate & Energy, Space & Astronomy | 0.70–0.75 |
+| Birds & Nature, Food & Cooking, Gardening & Plants, Higher Education, Video Games | 0.65 |
+| Economy & Jobs, Movies & Film, Sports | 0.60 |
+| Books & Reading, Music | 0.55 |
+| Capitalism, Fitness & Gym, Pets, Politics | 0.50 |
+
+Note: style axis annotation (`axes_json`) is not yet included in `scale_8000/8000_posts.jsonl`.
+
+---
+
 ## Style Axes (`axes_json` in `2550_posts.jsonl`)
 
 Each post is annotated with 7 dimensions scored 0.0–1.0:
